@@ -1,5 +1,5 @@
-import { cache } from "@/lib/cache";
-import { db } from "@/lib/prisma";
+import { cache } from "@/Lib/cache";
+import { db } from "@/Lib/prisma";
 
 export const getUsers = cache(
   () => {
