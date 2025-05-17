@@ -35,6 +35,6 @@ export const getcategory = cache(
     });
     return category;
   },
-  [`product-${crypto.randomUUID()}`],
+  ["category"],
   { revalidate: 3600 }
 );
