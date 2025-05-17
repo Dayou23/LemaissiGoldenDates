@@ -7,13 +7,24 @@ import { formatCurrency } from "@/Lib/formatters";
 import { getCurrentLocale } from "@/Lib/getCurrentLocale";
 import getTrans from "@/Lib/translation";
 
-import { getProducts } from "@/server/db/products";
+import { getProducts, getProductsPagination } from "@/server/db/products";
 import { Suspense } from "react";
 
-const SinglePage = async ({ params }: { params: { slug: string } }) => {
+const SinglePage = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) => {
+  // const SinglePage = async ({ params }: any) => {
   const products = await getProducts();
-  const Params = await params;
-  const { slug } = Params;
+
+  const pageSize = 3;
+
+  const productsC = await getProductsPagination({ pageSize });
+
+  // const Params = await params;
+  // const { slug } = Params;
+  const { slug } = await params;
   const locale = await getCurrentLocale();
   const translations = await getTrans(locale);
 
@@ -73,7 +84,7 @@ const SinglePage = async ({ params }: { params: { slug: string } }) => {
           {translations.home.bestProducts.OurProducts}
         </h1>
         <Suspense fallback="lading...">
-          <ProductList products={products} />
+          <ProductList products={productsC} />
           {/* <ProductList  /> */}
         </Suspense>
       </div>

@@ -32,13 +32,13 @@ export const addProduct = async (
 
   const data = result.data;
   const price = Number(data.price);
-  console.log("console.log(data)", data);
+  // console.log("console.log(data)", data);
   try {
     // Create the product with multiple images
     const lastProduct = await db.product.findFirst({
       orderBy: { order: "desc" },
     });
-    console.log("lastProduct after try", lastProduct);
+    // console.log("lastProduct after try", lastProduct);
     const newProduct = await db.product.create({
       data: {
         ...data,

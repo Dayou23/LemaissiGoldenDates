@@ -1,6 +1,7 @@
 "use client";
 
 import type { Slider } from "@prisma/client";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -76,13 +77,8 @@ const Slider = ({
                     className=" flex items-center justify-center hover:font-bold pt-10 ml-52"
                   >
                     <p className=" p-2 hover:mr-4 ">{sliderComponent.Meetus}</p>
-                    <Image
-                      alt=""
-                      src="/arrowR.png"
-                      width={8}
-                      height={8}
-                      className="h-3 w-3 hover:w-4 hover:h-4 hover:ml-4"
-                    />
+
+                    <ChevronRight className="h-4 w-4 hover:w-4 hover:h-4 hover:ml-4" />
                   </Link>
                 </div>
               </div>
@@ -105,7 +101,7 @@ const Slider = ({
           </div>
         ))}
       </div>
-      <Image
+      {/* <Image
         alt=""
         src="/arrowR.png"
         width={16}
@@ -114,9 +110,20 @@ const Slider = ({
         onClick={() =>
           setCurrent((prev) => (prev === sliders.length - 1 ? 0 : prev + 1))
         }
+      /> */}
+      <ChevronRight
+        className="absolute right-4 hover:w-9 hover:h-9 w-8 h-8 top-[50%] cursor-pointer "
+        onClick={() =>
+          setCurrent((prev) => (prev === sliders.length - 1 ? 0 : prev + 1))
+        }
       />
-
-      <Image
+      <ChevronLeft
+        className="absolute left-4 hover:w-9 hover:h-9 w-8 h-8 top-[50%] cursor-pointer "
+        onClick={() =>
+          setCurrent((prev) => (prev === 0 ? sliders.length - 1 : current - 1))
+        }
+      />
+      {/* <Image
         alt=""
         src="/arrowL.png"
         width={16}
@@ -125,7 +132,7 @@ const Slider = ({
         onClick={() =>
           setCurrent((prev) => (prev === 0 ? sliders.length - 1 : current - 1))
         }
-      />
+      /> */}
     </div>
   );
 };

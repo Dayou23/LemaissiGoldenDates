@@ -39,13 +39,7 @@ const AddToCartButton = ({
       className="flex items-center justify-center w-full rounded-md bg-primary px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-secondary focus:outline-none focus:ring-4 focus:ring-tertiary "
     >
       {locale === "ar" && translations.products.addToCart}
-      {/* <Image
-        src="/grocery-store.png"
-        alt="bag"
-        width={20}
-        height={20}
-        className="mr-2 h-6 w-6"
-      /> */}
+
       <ShoppingCart width={20} height={20} className="mr-2 " />
       {locale != "ar" && translations.products.addToCart}
     </button>

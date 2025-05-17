@@ -371,7 +371,7 @@ const FormActions = ({
     try {
       setState((prev) => ({ ...prev, pending: true }));
       const res = await deleteProduct(id);
-      console.log("Delete response", res);
+      // console.log("Delete response", res);
       setState((prev) => ({
         ...prev,
         status: res.status,

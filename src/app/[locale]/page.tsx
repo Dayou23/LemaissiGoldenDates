@@ -18,7 +18,7 @@ export default async function Home() {
 
   const { home } = await getTrans(locale);
   const sliders = await getSliders();
-  console.log("sliders", sliders);
+
   return (
     <div className="">
       <Slider

@@ -14,10 +14,22 @@ export type CartItem = {
 type CartState = {
   items: CartItem[];
 };
-const initialCartItems = localStorage.getItem("cartItems");
+// const initialCartItems = localStorage.getItem("cartItems");
+
+// const initialState: CartState = {
+//   items: initialCartItems ? JSON.parse(initialCartItems) : [],
+// };
+
+const getInitialCartItems = (): CartItem[] => {
+  if (typeof window !== "undefined") {
+    const stored = localStorage.getItem("cartItems");
+    return stored ? JSON.parse(stored) : [];
+  }
+  return [];
+};
 
 const initialState: CartState = {
-  items: initialCartItems ? JSON.parse(initialCartItems) : [],
+  items: getInitialCartItems(),
 };
 
 export const cartSlice = createSlice({

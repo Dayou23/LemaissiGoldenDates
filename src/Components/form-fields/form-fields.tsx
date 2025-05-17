@@ -21,7 +21,15 @@ const FormFields = (props: Props) => {
     }
 
     if (type === InputTypes.CHECKBOX) {
-      return <Checkbox {...props} />;
+      // Ensure 'checked' is passed; default to false if not present in props, and 'label' is always provided
+      const { label = "", ...rest } = props;
+      return (
+        <Checkbox
+          {...rest}
+          label={label}
+          checked={Boolean((props as any).checked)}
+        />
+      );
     }
 
     return <TextField {...props} />;

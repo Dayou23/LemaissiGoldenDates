@@ -27,61 +27,6 @@ function CartItems() {
   return (
     <div>
       {cart && cart.length > 0 ? (
-        // <>
-        //   <ul>
-        //     {cart.map((item) => (
-        //       <li key={item.id}>
-        //         <div className="flex flex-col md:flex-row gap-6 justify-between">
-        //           <div className="flex items-center gap-2">
-        //             <div className="relative w-24 h-24">
-        //               <Image
-        //                 src={item.image}
-        //                 className="object-contain"
-        //                 alt={item.name}
-        //                 fill
-        //               />
-        //             </div>
-        //             <div>
-        //               <h4 className="font-semibold md:text-lg">{item.name}</h4>
-        //               <div className="relative">
-        //                 <span className="absolute right-0 top-0 text-sm text-black">
-        //                   x{item.quantity}
-        //                 </span>
-        //               </div>
-        //             </div>
-        //           </div>
-        //           <div className="flex-1 flex items-center gap-4 justify-end">
-        //             <strong className="text-black ">{item.price}</strong>
-        //             <button
-        //               onClick={() =>
-        //                 dispatch(removeItemFromCart({ id: item.id }))
-        //               }
-        //               className="border"
-        //             >
-        //               x
-        //             </button>
-        //           </div>
-        //         </div>
-        //       </li>
-        //     ))}
-        //   </ul>
-        //   <div className="flex flex-col justify-end items-end pt-6">
-        //     {/* <span className="text-accent font-medium">
-        //       Subtotal:
-        //       <strong className="text-black">{formatCurrency(subTotal)}</strong>
-        //     </span> */}
-        //     {/* <span className="text-accent font-medium">
-        //       Delivery:
-        //       <strong className="text-black">
-        //         {formatCurrency(deliveryFee)}
-        //       </strong>
-        //     </span> */}
-        //     <span className="text-accent font-medium">
-        //       Total:
-        //       <strong className="text-black">{formatCurrency(subTotal)}</strong>
-        //     </span>
-        //   </div>
-        // </>
         <div className="h-full bg-gray-100 py-20">
           <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
             <div className="rounded-lg md:w-2/3">
@@ -91,12 +36,6 @@ function CartItems() {
                   key={item.id}
                 >
                   {item?.images && (
-                    // <img
-                    //   src={item.image[0].image}
-                    //   alt="product-image"
-                    //   className="w-full rounded-lg sm:w-40"
-                    // />
-
                     <div className="">
                       <Image
                         src={item?.images[0]?.image}

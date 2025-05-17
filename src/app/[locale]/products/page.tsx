@@ -5,12 +5,18 @@ import getTrans from "@/Lib/translation";
 import { getProductsPagination, getProductsCount } from "@/server/db/products";
 import { Suspense } from "react";
 
+// const ProductsPage = async ({
+//   searchParams,
+// }: {
+//   searchParams?: { page?: string };
+// }) => {
 const ProductsPage = async ({
   searchParams,
 }: {
-  searchParams?: { page?: string };
+  searchParams?: Promise<{ page?: string }>;
 }) => {
-  const currentPage = parseInt(searchParams?.page || "1", 10);
+  const searchParamsPage = await searchParams;
+  const currentPage = parseInt(searchParamsPage?.page || "1", 10);
   const pageSize = 6;
 
   const [products, total] = await Promise.all([

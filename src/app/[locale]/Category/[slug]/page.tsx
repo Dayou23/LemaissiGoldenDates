@@ -5,11 +5,12 @@ import { getCategories } from "@/server/db/categories";
 import { getProductsCount, getProductsPagination } from "@/server/db/products";
 import { Suspense } from "react";
 
-const SinglePage = async ({
-  params,
-}: {
-  params: { slug: string; page: string };
-}) => {
+type PageProps = {
+  params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ page?: string }>;
+};
+
+const SinglePage = async ({ params, searchParams }: PageProps) => {
   const locale = await getCurrentLocale();
   const translations = await getTrans(locale);
 
@@ -17,7 +18,8 @@ const SinglePage = async ({
   const { slug } = Params;
 
   const categories = await getCategories();
-  const currentPage = parseInt(params?.page || "1", 10);
+  const searchParamsPage = await searchParams;
+  const currentPage = parseInt(searchParamsPage?.page || "1", 10);
   const pageSize = 6;
 
   const [products, total] = await Promise.all([
@@ -25,13 +27,14 @@ const SinglePage = async ({
     getProductsCount(),
   ]);
 
-  const currentProducts = products.filter((item) => {
-    if (item.categoryId === slug) {
-      return item;
-    } else {
-      return null;
-    }
-  });
+  // const currentProducts = products.filter((item) => {
+  //   if (item.categoryId === slug) {
+  //     return item;
+  //   } else {
+  //     return null;
+  //   }
+  // });
+  const currentProducts = products.filter((item) => item.categoryId === slug);
 
   const totalPages = Math.ceil(currentProducts.length / pageSize);
 

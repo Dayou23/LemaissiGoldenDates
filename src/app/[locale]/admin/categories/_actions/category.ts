@@ -150,7 +150,7 @@ const getImageUrl = async (imageFile: File) => {
         body: formData,
       }
     );
-    console.log(response);
+    // console.log(response);
     const image = (await response.json()) as { url: string };
     return image.url;
   } catch (error) {

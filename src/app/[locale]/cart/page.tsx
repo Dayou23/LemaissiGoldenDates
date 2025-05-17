@@ -22,7 +22,7 @@ const cartPage = async () => {
         <CartItems />
         <div className="mt-24 pb-24 px-2 md:px-4 lg:px-8 xl:px-8 2xl:px-32">
           <Suspense fallback="lading...">
-            <ProductList products={products} totalPages={3} />
+            <ProductList products={products} />
           </Suspense>
         </div>
       </div>

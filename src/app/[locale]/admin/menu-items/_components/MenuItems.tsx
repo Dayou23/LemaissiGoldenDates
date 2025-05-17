@@ -9,7 +9,7 @@ import { Product } from "@prisma/client";
 import Image from "next/image";
 
 async function MenuItems({ products }: { products: ProductWithRelations[] }) {
-  console.log("products", products);
+  // console.log("products", products);
   const locale = await getCurrentLocale();
   const translations = await getTrans(locale);
   return products && products.length > 0 ? (
