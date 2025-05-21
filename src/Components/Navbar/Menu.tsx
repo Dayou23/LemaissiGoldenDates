@@ -1,3 +1,4 @@
+//app/[locale]/layout.tsx
 "use client";
 
 import Image from "next/image";
