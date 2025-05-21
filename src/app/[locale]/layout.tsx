@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import Footer from "@/Components/Footer";
 import Navbar from "@/Components/Navbar/Navbar";
 import ReduxProvider from "@/providers/ReduxProvider";
