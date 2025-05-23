@@ -40,7 +40,7 @@ export default async function RootLayout({
     <html
       lang={locale}
       dir={locale === Languages.ARABIC ? Directions.RTL : Directions.LTR}
-      suppressHydrationWarning
+      // suppressHydrationWarning
     >
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

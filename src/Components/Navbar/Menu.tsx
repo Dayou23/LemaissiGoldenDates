@@ -40,7 +40,7 @@ const Menu = ({
           <div
             className={`flex flex-col justify-center top-0 ${
               locale === AR.ARABIC ? "left-0 pr-20" : "right-0 pl-20"
-            } w-[50vw] bg-white  p-10  text-black fixed h-full z-40  ease-in-out duration-300 ${
+            } w-[75vw] bg-white  p-10  text-black fixed h-full z-40  ease-in-out duration-300 ${
               showSidebar ? "translate-x-0 " : "translate-x-full"
             }`}
           >
